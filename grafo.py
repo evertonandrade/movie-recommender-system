@@ -179,6 +179,13 @@ class Grafo:
         self.grafo = copia
         return ordem_topologica
 
+    def recomendar(self, user_id):    
+        lista_recomendados = []
+        avaliacoes_usuario = Grafo.get_adjacentes(self, user_id)
+        avaliacoes_gerais = self.grafo.values()
+
+        print(f'{lista_recomendados}')
+
 
 
     def __str__(self):
