@@ -6,7 +6,7 @@ grafo = Grafo()
 
 table_movies = {}
 
-with open('datasets/movies.csv', 'r') as csvmovies:
+with open('datasets/movies.csv', 'r', encoding="UTF-8") as csvmovies:
     for line in csvmovies:
         data = line.split(',')
         id_movie = data[0]
@@ -14,7 +14,7 @@ with open('datasets/movies.csv', 'r') as csvmovies:
         table_movies[id_movie] = name_movie.strip()
 
 
-with open('datasets/ratings.csv', 'r') as csvratings:
+with open('datasets/ratings.csv', 'r', encoding="UTF8") as csvratings:
     for line in csvratings:
         data = line.split(',')
         user = data[0]
@@ -25,6 +25,7 @@ with open('datasets/ratings.csv', 'r') as csvratings:
         grafo.adicionar_vertice(user)
         grafo.adicionar_vertice(rated_movie)
         grafo.adicionar_aresta(user, rated_movie, rating)
+        grafo.adicionar_aresta(rated_movie, user, rating)
 
 dados = grafo.grafo
 
